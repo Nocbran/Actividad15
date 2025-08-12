@@ -29,13 +29,22 @@ def mostrar_menu():
     print("4. Sumar los digitos de un numero")
     print("5. Contar cuantos digitos tiene un numero")
     print("6. Salir")
+    print("*"*45)
 
-    def opcion_invertir():
-        print("\n--- Invertir Cadena ---")
-        texto = input("Ingrese el texto (o escriba 'menu' para regresar): ")
-        if texto.lower() == "menu":
+def OpcionInvertir():
+    print("\n--- Invertir Cadena ---")
+    texto = input("Ingrese el texto (o escriba 'menu' para regresar): ")
+    if texto.lower() == "menu":
+        return
+    print(f"Texto invertido: {Invertir_Cadena(texto)}")
+
+def OpcionSumar():
+    print("\n*** Suma de N numeros naturales ***")
+    while True:
+        entrada = input("Ingrese un numero positivo (o escriba 'menu' para regresar): ")
+        if entrada.lower() == 'menu':
             return
-        print(f"Texto invertido: {Invertir_Cadena(texto)}")
+
 
 opcion = input("Selecciones una opcion: ")
 if opcion == "1":
