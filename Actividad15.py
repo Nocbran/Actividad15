@@ -20,32 +20,70 @@ def Imprimir_Cuenta_Regresiva(n):
 
 
 def mostrar_menu():
-    print("\n" + "="*45)
-    print("   MENÚ PRINCIPAL - RETOS RECURSIVOS")
-    print("="*45)
+    print("\n" + "*"*45)
+    print("_____________MENÚ PRINCIPAL______________")
+    print("*"*45)
     print("1. Invertir una cadena de texto")
     print("2. Calcular la suma de los primeros N numeros naturales")
     print("3. Imprimir una cuenta regresiva desde N hasta 1")
     print("4. Sumar los digitos de un numero")
     print("5. Contar cuantos digitos tiene un numero")
     print("6. Salir")
+    print("-"*25)
 
-    def opcion_invertir():
-        print("\n--- Invertir Cadena ---")
-        texto = input("Ingrese el texto (o escriba 'menu' para regresar): ")
-        if texto.lower() == "menu":
+def OpcionInvertir():
+    print("\n--- Invertir Cadena ---")
+    texto = input("Ingrese el texto (o escriba 'menu' para regresar): ")
+    if texto.lower() == "menu":
+        return
+    print(f"Texto invertido: {Invertir_Cadena(texto)}")
+
+def OpcionSumar():
+    print("\n*** Suma de N numeros naturales ***")
+    while True:
+        entrada = input("Ingrese un numero positivo (o escriba 'menu' para regresar): ")
+        if entrada.lower() == 'menu':
             return
-        print(f"Texto invertido: {Invertir_Cadena(texto)}")
+        if entrada.isdigit() and int(entrada) > 0:
+            numero = int(entrada)
+            print(f"Suma total: {Calcular_Suma_N_numero(numero)}")
+            break
+        else:
+            print("Error, ingrese un numero valido!")
 
-opcion = input("Selecciones una opcion: ")
-if opcion == "1":
-    texto = input("Ingrese el texto que desea invertir: ")
-    resultado = Invertir_Cadena(texto)
-    print(f"\nEl texto invertido es: {resultado}")
-elif opcion == "2":
-    numero = int(input("Ingrese un numero positivo "))
-    resultadoSuma = Calcular_Suma_N_numero(numero)
-    print(f"\nSuma de N numeros es: {resultadoSuma}")
-elif opcion == "3":
-    Numero = int(input("Ingrese un numero: "))
-    print(f"\nCuenta regresiva asta el numero : {Imprimir_Cuenta_Regresiva(Numero)}")
+def OpcionCuentaRegresiva():
+    print("\n*** Cuenta Regresiva ***")
+    while True:
+        entrada = input("Ingrese un numero positivo (o escriba 'menu' para regresar): ")
+        if entrada.lower() == 'menu':
+            return
+        if entrada.isdigit() and int(entrada) > 0:
+            numero  = int(entrada)
+            print(f"Cuenta regresiva: {Imprimir_Cuenta_Regresiva(numero)}")
+            break
+        else:
+            print("Error, Ingrese un numero valido")
+
+
+def main():
+    while True:
+        mostrar_menu()
+        opcion = input("Seleccione una opcion: ")
+        if opcion == "1":
+            OpcionInvertir()
+        elif opcion == "2":
+            OpcionSumar()
+        elif opcion == "3":
+            OpcionCuentaRegresiva()
+        elif opcion == "4":
+            continue
+        elif opcion == "5":
+            continue
+        elif opcion == "6":
+            print("\n Hasta pronto")
+            break
+        else:
+            print("Opcion invalida")
+
+main()
+
